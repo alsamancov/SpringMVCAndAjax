@@ -48,7 +48,7 @@ public class MainController {
     @RequestMapping(value = "/answers", method = RequestMethod.GET)
     @ResponseBody
     public List<Answer> answers(){
-        List<Answer> answers = answerService.getAnswersByQuestionId(1);
+        List<Answer> answers = answerService.getAllAnswers();
         return answers;
     }
 
@@ -72,6 +72,16 @@ public class MainController {
 
 
         return allapplicants;
+    }
+
+
+    @RequestMapping(value = "/question", method = RequestMethod.GET)
+    @ResponseBody
+    public Question getquestion() {
+        Question questionbyid = questionService.findQuestionById(1);
+
+
+        return questionbyid;
     }
 
 }
